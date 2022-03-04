@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { styled } from 'components/styles/stitches.config';
 
-const GetPostSelectElement = () => {
-	const [IsSelectExtend, setIsSelectExtend] = useState(true);
+const PostSelect = () => {
+	const [IsSelectExtend, setIsSelectExtend] = useState(false);
 	return (
 		<JbPveSelects>
 			<JoUntxs onClick={() => {
@@ -152,4 +152,4 @@ const JoUntxs = styled('button', {
 		"backgroundImage" : `url(${require("assets/images/icos/icocGrayArrowBottom_15_9.png")})`,
 	}
 });
-export default GetPostSelectElement;
+export default PostSelect;

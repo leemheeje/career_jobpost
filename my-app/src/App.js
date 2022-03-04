@@ -1,14 +1,13 @@
 import React from 'react';
-import {Layout, Header, Footer} from './components/layout';
+import { Layout, Header, Footer, Container } from './components/layout';
 
 const App = () => {
 	return (
-		<>
-			<Layout>
-				<Header/>
-				<Footer/>
-			</Layout>
-		</>
+		<Layout>
+			<Header />
+			<Container />
+			<Footer />
+		</Layout>
 	)
 }
 
