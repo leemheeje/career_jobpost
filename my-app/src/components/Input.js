@@ -24,11 +24,12 @@ export const Textarea = ({
 
 export const Checkbox = ({
 	children,
+	size,
 	label = "",
 	...props
 }) => {
 	return (
-		<JbForm>
+		<JbForm size={size}>
 			<label>
 				<input type="checkbox" {...props} />
 				<Label className='lb' checkbox>
@@ -151,6 +152,27 @@ const JbForm = styled('div', {
 			"padding": 20,
 			"resize": "vertical",
 			"min-height": 200
+		}
+	},
+	variants: {
+		"size": {
+			"sm": {
+				"& .lb":{
+					"font-size": "13px",
+					"line-height": "16px",
+					"padding": "1px 0",
+					"padding-left": "24px",
+				},
+				"& input[type='checkbox']+.lb:before":{
+					"width": "18px",
+					"height": "18px",
+					"background-image": `url(${require("assets/images/icos/icosWhiteCheck_8.png")})`,
+				},
+				"& input[type='checkbox']:checked+.lb:before":{
+					"background-color": "#5f9dff",
+					"border-color": "#5f9dff",
+				}
+			}
 		}
 	}
 });

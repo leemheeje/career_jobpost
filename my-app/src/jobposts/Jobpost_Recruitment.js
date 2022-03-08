@@ -4,6 +4,7 @@ import Row from 'components/Row';
 import Colum from 'components/Colum';
 import Text from 'components/Text';
 import Select from 'components/Select';
+import Dialog from 'components/Dialog';
 import { Input, Checkbox } from 'components/Input';
 import React from 'react';
 
