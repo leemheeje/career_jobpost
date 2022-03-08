@@ -1,6 +1,8 @@
 import { styled } from 'components/styles/stitches.config';
 
 const Row = styled('div', {
+	marginLeft : -2.5,
+	marginRight : -2.5,
 	display : 'flex',
 	variants: {
 		rowJustifyBetween: {
@@ -9,6 +11,11 @@ const Row = styled('div', {
 				alignItems : 'center',
 			}
 		},
+		alignItemsCenter : {
+			true : {
+				alignItems: 'center'
+			}
+		}
 	}
 });
 
