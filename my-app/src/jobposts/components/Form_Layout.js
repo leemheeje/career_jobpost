@@ -5,7 +5,7 @@ const FormLayout = ({
 	children,
 	label = '레이블',
 	required = false,
-	className = {},
+	className = '',
 	smpadding = '',
 	...props
 }) => {

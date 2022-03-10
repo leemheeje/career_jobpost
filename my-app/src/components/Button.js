@@ -12,24 +12,24 @@ const Button = ({
 	...props
 }) => {
 	return (
-		<Button_ {...props}>
+		<MButton {...props}>
 			{
 				isIco && typeof isIco === 'string'
-					? <Ico_ className={isIco}></Ico_>
+					? <MIco className={isIco}></MIco>
 					: false
 			}
-			<Intxt_ className='intxtsw'>{children}</Intxt_>
-		</Button_>
+			<MIntxt className='intxtsw'>{children}</MIntxt>
+		</MButton>
 	)
 }
 
-const Intxt_ = styled('span', {
+const MIntxt = styled('span', {
 	"font-size": "16px",
 	"display": "inline-block",
 	"vertical-align": "top",
 	"color": '$white',
 });
-const Ico_ = styled('span', {
+const MIco = styled('span', {
 	"display": "inline-block",
 	"vertical-align": "middle",
 	"&.reload": {
@@ -39,7 +39,7 @@ const Ico_ = styled('span', {
 		"margin-right": "5px",
 	}
 });
-const Button_ = styled('button', {
+const MButton = styled('button', {
 	"padding": "0 22px",
 	"background": "#454545",
 	"border-radius": "2px",
@@ -71,7 +71,14 @@ const Button_ = styled('button', {
 	},
 	variants: {
 		size: {
-			sm: { "height": "32px" },
+			sm: { 
+				"height": "32px", 
+				"min-width": "80px", 
+				"padding": 0, 
+				"& .intxtsw": {
+					fontSize: "12px",
+				}
+			},
 			md: { "height": "50px" },
 			lg: { "height": "80px" },
 		}

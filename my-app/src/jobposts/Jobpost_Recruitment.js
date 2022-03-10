@@ -1,12 +1,15 @@
+import React from 'react';
 import Section from 'components/Section';
-import FormLayout from 'components/Form_Layout';
+import FormLayout from 'jobposts/components/Form_Layout';
+import { SortIndialogWrapping, SortCateDicButton, SortContDicButton } from 'jobposts/components/Sort_InDialog';
+import { SortWrapping, Sorted, FavSorted } from 'jobposts/components/Sort_Layout';
 import Row from 'components/Row';
 import Colum from 'components/Colum';
 import Text from 'components/Text';
 import Select from 'components/Select';
-import Dialog from 'components/Dialog';
 import { Input, Checkbox } from 'components/Input';
-import React from 'react';
+import Dialog from 'components/Dialog';
+// import { Tag, TagGroup } from 'components/Tag';
 
 
 const JobpostRecruitment = () => {
@@ -66,6 +69,27 @@ const JobpostRecruitment = () => {
 							<Input type="text" placeholder="근무 부서명을 입력해 주세요." />
 						</Colum>
 					</Row>
+				</FormLayout>
+				<FormLayout label='직급/직책'>
+					<SortWrapping>
+						<Sorted />
+						<FavSorted />
+					</SortWrapping>
+				</FormLayout>
+				<FormLayout label='우대조건'>
+					<SortWrapping>
+						<Sorted />
+						<FavSorted />
+					</SortWrapping>
+				</FormLayout>
+				<FormLayout label='우대조건'>
+					<Dialog>
+						<SortIndialogWrapping sortCategoryArea={(
+							["취업보호.장려", "취업보호.장려2"].map((item, key) => <SortCateDicButton onClick={() => alert(key)} key={key}>{item}</SortCateDicButton>)
+						)} sortContentArea={(
+							["취업보호.장려", "취업보호.장려2"].map((item, key) => <SortContDicButton onClick={() => alert(key)} key={key}>{item}</SortContDicButton>)
+						)} />
+					</Dialog>
 				</FormLayout>
 			</Section>
 		</>

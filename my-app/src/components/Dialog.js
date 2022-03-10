@@ -15,16 +15,16 @@ const Dialog = ({
 				"position": "relative",
 			}}>
 				<DjGiInners>
-					<div class="djHedAre">
-						<div class="dintx">
-							<span class="inw">{title}<small class="sm">{subtitle}</small></span>
+					<div className="djHedAre">
+						<div className="dintx">
+							<span className="inw">{title}<small className="sm">{subtitle}</small></span>
 						</div>
 					</div>
 					<div className='djConAre'>
 						{children}
 					</div>
 					<div className='djFotAre'>
-						<div class="btwGrp">
+						<div className="btwGrp">
 							<Button className="outline" md>취소</Button>
 							<Button className="ML05" md>확인</Button>
 							<button className='diClse' title="팝업닫기"></button>
@@ -65,6 +65,10 @@ const M_Dialog = styled('div', {
 		"height": "100%",
 		"background": "#000",
 		"opacity": ".7",
+	},
+	"& .djHedAre": {
+		"text-align": "left",
+		"padding": "11px 0",
 	},
 	"& .djHedAre .inw": {
 		"font-size": "22px",
