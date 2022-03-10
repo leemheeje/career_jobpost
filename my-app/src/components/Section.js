@@ -4,11 +4,11 @@ import React from 'react';
 const Section = ({
 	children,
 	title = '타이틀이 없습니다.',
-	stitle  = '서브타이틀이 없습니다.',
+	stitle = '서브타이틀이 없습니다.',
 	...props
 }) => {
 	return (
-		<JbCBoxing>
+		<JbCBoxing className='jbCBoxing'>
 			<Title>{title}</Title>
 			<STitle>{stitle}</STitle>
 			{children}
@@ -21,6 +21,9 @@ const JbCBoxing = styled('div', {
 	"overflow": "hidden",
 	"background": "#fff",
 	"box-shadow": "0 5px 15px rgba(0,0,0,0.07)",
+	"&+&":{
+		"margin-top": "70px",
+	}
 });
 const Title = styled('div', {
 	sectionTitle: true

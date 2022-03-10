@@ -2,12 +2,14 @@ import { styled } from 'components/styles/stitches.config';
 import React from 'react';
 
 export const Input = ({
+	children,
 	type = 'text',
 	...props
 }) => {
 	return (
-		<JbForm>
+		<JbForm inlabel={props.inlabel}>
 			<input type={type} {...props} />
+			{children}
 		</JbForm>
 	);
 }
@@ -78,6 +80,24 @@ const Label = styled('span', {
 	"color": "#333",
 	"text-align": "left",
 	"word-break": "break-all",
+	"& .lbe": {
+		"font-size": "13px",
+		"color": "#999",
+		"vertical-align": "baseline",
+		"position": "relative",
+		"padding-left": "10px",
+		"margin-left": "10px",
+		"&:before": {
+			"content": "",
+			"width": "1px",
+			"height": "13px",
+			"position": "absolute",
+			"left": " 0",
+			"top": "50%",
+			"margin-top": "-6px",
+			"background": "#dadfe6",
+		}
+	},
 	variants: {
 		checkbox: {
 			true: {
@@ -157,21 +177,40 @@ const JbForm = styled('div', {
 	variants: {
 		"size": {
 			"sm": {
-				"& .lb":{
+				"& .lb": {
 					"font-size": "13px",
 					"line-height": "16px",
 					"padding": "1px 0",
 					"padding-left": "24px",
 				},
-				"& input[type='checkbox']+.lb:before":{
+				"& input[type='checkbox']+.lb:before": {
 					"width": "18px",
 					"height": "18px",
 					"background-image": `url(${require("assets/images/icos/icosWhiteCheck_8.png")})`,
 				},
-				"& input[type='checkbox']:checked+.lb:before":{
+				"& input[type='checkbox']:checked+.lb:before": {
 					"background-color": "#5f9dff",
 					"border-color": "#5f9dff",
 				}
+			}
+		},
+		inlabel: {
+			true: {
+				"& input": {
+					"padding-right": "50px",
+					"text-align": "right",
+				},
+				"& .inl": {
+					"position": "absolute",
+					"right": "0",
+					"top": "0",
+					"line-height": "54px",
+					"width": "50px",
+					"text-align": "left",
+					"font-size": "15px",
+					"color": "#999",
+					"text-indent": "5px",
+				},
 			}
 		}
 	}

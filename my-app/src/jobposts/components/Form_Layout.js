@@ -4,15 +4,19 @@ import React from 'react';
 const FormLayout = ({
 	children,
 	label = '레이블',
+	slabel = '',
 	required = false,
 	className = '',
 	smpadding = '',
 	...props
 }) => {
 	return (
-		<JbLayoutLabs className={className} >
+		<JbLayoutLabs className={`MT20 ${className} ${required ? 'required' : ''}`} >
 			<Jblabs className={`jblabs ${smpadding ? "smpadding" : ""}`}>
-				<Ints className="ints">{label}</Ints>
+				<Ints className="ints">
+					{label}
+					<small className="sm">{slabel}</small>
+				</Ints>
 			</Jblabs>
 			<JbDivs className="jbDivs">
 
@@ -54,6 +58,11 @@ const Ints = styled('div', {
 	"color": "#333",
 	"font-weight": "bold",
 	"line-height": "20px",
+	"& .sm": {
+		"font-size": "80%",
+		"font-weight": "normal",
+		"margin-left": "5px",
+	}
 });
 const JbDivs = styled('div', {
 	"float": "left",

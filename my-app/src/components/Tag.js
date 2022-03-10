@@ -7,9 +7,20 @@ export const Tag = ({
 	...props
 }) => {
 	return (
-		<MTag>
-			<input type="checkbox" name="" value="" id="" />
-			<span className="lb">{children}</span>
+		<MTag as={props.as}>
+			{
+				!props.as
+					?
+					<>
+						<input type="checkbox" name="" value="" id="" {...props} />
+						<span className="lb">{children}</span>
+					</>
+					:
+					<>
+						{children}
+					</>
+			}
+
 		</MTag>
 	);
 }
@@ -19,21 +30,28 @@ export const TagGroup = ({
 	...props
 }) => {
 	return (
-		<MTagGroup>
+		<MTagGroup {...props}>
 			{
-				typeof children === 'object' && Array.isArray(children) ? children.map((item, index) => {
-					return (
-						<div className='tpws' key={index}>
-							{item}
-						</div>
-					)
-				}) : ''
+				typeof children === 'object' && Array.isArray(children)
+					? children.map((item, index) => {
+						return (
+							<div className='tpws' key={index}>
+								{item}
+							</div>
+						)
+					})
+					:
+					<div className='tpws'>
+						{children}
+					</div>
 			}
 		</MTagGroup>
 	);
 }
 
 const MTagGroup = styled('div', {
+	"margin-bottom": "-10px",
+	"margin-right": "-5px",
 	"&:after": {
 		"content": "",
 		"display": "table",
@@ -41,8 +59,6 @@ const MTagGroup = styled('div', {
 	},
 	"& .tpws": {
 		"float": "left",
-		"margin-right": "4px",
-		"margin-top": "10px",
 	},
 })
 
@@ -58,6 +74,13 @@ const MTag = styled('label', {
 	"font-weight": "normal",
 	"padding": "0 20px",
 	"position": "relative",
+	"margin-right": "4px",
+	"margin-bottom": "10px",
+	"button&":{
+		"border-color": "#454545",
+		"background-color": "#454545",
+		"color": "#fff",
+	},
 	"&.active": {
 		"border-color": "#007eff",
 		"color": "#007eff",

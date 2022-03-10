@@ -3,6 +3,7 @@ import { styled } from "components/styles/stitches.config";
 const Colum = styled('div', {
 	paddingLeft: 2.5,
 	paddingRight: 2.5,
+	float: 'left',
 	variants: {
 		col00: { true: { width: 'auto' } },
 		col05: { true: { width: '4.16%' } },

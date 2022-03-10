@@ -8,9 +8,9 @@ const Selected = ({
 	return (
 		<>
 			{/* wrapping ?? classname fbOriStvsArea */}
-			<MSelected class="fboTpsw">
-				<span class="wlbwx">{children}</span>
-				<button class="wlbde" title="삭제" {...props}></button>
+			<MSelected className="fboTpsw">
+				<span className="wlbwx">{children}</span>
+				<button className="wlbde" title="삭제" {...props}></button>
 			</MSelected>
 		</>
 	);

@@ -23,7 +23,7 @@ const Select_ = styled('select', {
 	"vertical-align": "top",
 	"background-color": "#fff",
 	"padding-right": "30px",
-	"background" : `no-repeat right center url(${require("assets/images/icos/icosBlackArrowBottom_8.png")})`,
+	"background" : `#fff no-repeat right center url(${require("assets/images/icos/icosBlackArrowBottom_8.png")})`,
 	"background-position-x": "calc(100% - 15px)",
 })
 

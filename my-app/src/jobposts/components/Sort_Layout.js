@@ -103,7 +103,7 @@ export const FavSorted = ({ ...props }) => {
 	return (
 		<MFavSorted className="useBtArea">
 			<span className="tpwLabs">자주 사용하는 외국어 선택</span>
-			<TagGroup>
+			<TagGroup className="MT10">
 				{
 					['+JLPT', '+HSK'].map((item, index) => <Tag key={index}>{item}</Tag>)
 				}

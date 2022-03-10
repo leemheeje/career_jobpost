@@ -18,7 +18,9 @@ const Button = ({
 					? <MIco className={isIco}></MIco>
 					: false
 			}
-			<MIntxt className='intxtsw'>{children}</MIntxt>
+			{
+				!props.delete_button ? <MIntxt className='intxtsw'>{children}</MIntxt> : ''
+			}
 		</MButton>
 	)
 }
@@ -71,16 +73,29 @@ const MButton = styled('button', {
 	},
 	variants: {
 		size: {
-			sm: { 
-				"height": "32px", 
-				"min-width": "80px", 
-				"padding": 0, 
+			sm: {
+				"height": "32px",
+				"min-width": "80px",
+				"padding": 0,
 				"& .intxtsw": {
 					fontSize: "12px",
 				}
 			},
 			md: { "height": "50px" },
 			lg: { "height": "80px" },
+		},
+		delete_button: {
+			true: {
+				"padding": "0",
+				"min-width": "0",
+				"width": "17px",
+				"height": "17px",
+				"font-size": "0",
+				"background": `transparent no-repeat center center url(${require("assets/images/icos/icosBlackClose_7.png")})`,
+				"border": "none",
+				"display": "inline-block",
+				"vertical-align": "middle",
+			}
 		}
 	}
 });
