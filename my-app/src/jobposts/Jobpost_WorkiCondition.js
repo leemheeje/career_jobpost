@@ -5,8 +5,9 @@ import Select from 'components/Select';
 import Row from 'components/Row';
 import Colum from 'components/Colum';
 import Text from 'components/Text';
-import { Checkbox, Input } from 'components/Input';
+import { Checkbox, Input, Radio } from 'components/Input';
 import { AddformRow, AddformWrapping } from './components/Addform_Layout';
+import { Sorted, SortWrapping } from './components/Sort_Layout';
 
 const Jobpost_WorkiCondition = () => {
 	return (
@@ -90,6 +91,69 @@ const Jobpost_WorkiCondition = () => {
 							</Colum>
 						</Row>
 					</AddformRow>
+				</AddformWrapping>
+			</FormLayout>
+			<FormLayout className='MT45' smpadding label='근무지 주소' required>
+				<Row>
+					<Colum col00 className='MR25'>
+						<Radio label='국내' />
+					</Colum>
+					<Colum col00 className='MR25'>
+						<Radio label='해외' />
+					</Colum>
+					<Colum col00 className='MR25'>
+						<Checkbox label='재택근무 가능' />
+					</Colum>
+				</Row>
+			</FormLayout>
+			<FormLayout label='근무지역' required>
+				<SortWrapping>
+					<Sorted />
+				</SortWrapping>
+			</FormLayout>
+			<FormLayout label='인근지하철' slabel='(0/5)'>
+				<SortWrapping>
+					<Sorted />
+				</SortWrapping>
+			</FormLayout>
+			<FormLayout label='근무요일'>
+				<Row alignItemsCenter>
+					<Colum col25>
+						<Select>
+							<option>선택해주세요</option>
+						</Select>
+					</Colum>
+					<Colum col00>
+						<Input type="text" placeholder="근무요일을 선택해주세요." style={{ width: 368 }} />
+					</Colum>
+					<Colum col00 className='ML15'>
+						<Checkbox label='요일 직접선택' />
+					</Colum>
+				</Row>
+				<AddformWrapping className='MT10'>
+					<Row alignItemsCenter>
+						<Colum col00 className='MR25'>
+							<Checkbox label='월요일' />
+						</Colum>
+						<Colum col00 className='MR25'>
+							<Checkbox label='화요일' />
+						</Colum>
+						<Colum col00 className='MR25'>
+							<Checkbox label='수요일' />
+						</Colum>
+						<Colum col00 className='MR25'>
+							<Checkbox label='목요일' />
+						</Colum>
+						<Colum col00 className='MR25'>
+							<Checkbox label='금요일' />
+						</Colum>
+						<Colum col00 className='MR25'>
+							<Checkbox label='토요일' />
+						</Colum>
+						<Colum col00 className='MR25'>
+							<Checkbox label='일요일' />
+						</Colum>
+					</Row>
 				</AddformWrapping>
 			</FormLayout>
 		</Section>
