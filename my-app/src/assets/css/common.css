@@ -40,6 +40,7 @@ html,body,.wrap{height: 100%;}
 input[type='text'],input[type='password'],input[type='image'],input[type='search'],select:not(.ui-datepicker-month):not(.ui-datepicker-year),textarea,input[type='file'],input[type='tel']{-webkit-appearance:none;-webkit-border-radius:0;}
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
+input:focus,select:focus,textarea:focus{outline: none; border-color: #000 !important;}
 .MT00{margin-top: 0px !important;}
 .MT05{margin-top: 05px !important;}
 .MT10{margin-top: 10px !important;}

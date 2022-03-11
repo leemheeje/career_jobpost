@@ -1,13 +1,15 @@
 import React from 'react';
 import Section from 'components/Section';
 import FormLayout from 'jobposts/components/Form_Layout';
+import AddremoveLayout from 'jobposts/components/AddRemove_Layout';
 import Select from 'components/Select';
 import Row from 'components/Row';
 import Colum from 'components/Colum';
+import Button from 'components/Button';
 import Text from 'components/Text';
 import { Checkbox, Input, Radio } from 'components/Input';
 import { AddformRow, AddformWrapping } from './components/Addform_Layout';
-import { Sorted, SortWrapping } from './components/Sort_Layout';
+import { Sorted, SortWrapping } from 'jobposts/components/Sort_Layout';
 
 const Jobpost_WorkiCondition = () => {
 	return (
@@ -105,6 +107,39 @@ const Jobpost_WorkiCondition = () => {
 						<Checkbox label='재택근무 가능' />
 					</Colum>
 				</Row>
+				<AddremoveLayout className='MT20' initialize={(
+					['asdf', 'bbbb'].map((item, key) => {
+						return (
+							<Row>
+								<Colum style={{ width: 300 }}>
+									<Input type="text" placeholder='주소를 입력해 주세요' readOnly />
+								</Colum>
+								<Colum style={{ width: 300 }}>
+									<Input type="text" placeholder='상세 주소 입력' />
+								</Colum>
+								<Colum col00>
+									<Button as="a" href="//www.naver.com" target="_blank">지도위치확인</Button>
+								</Colum>
+							</Row>
+						)
+					})
+				)} fnAddButtonClicked={(asdf) => console.log(asdf)} fnDelButtonClicked={() => alert(2)} />
+				<AddremoveLayout className='MT20' initialize={(
+					['asdf'].map((item, key) => {
+						return (
+							<Row>
+								<Colum style={{ width: 200 }}>
+									<Select>
+										<option>국가선택</option>
+									</Select>
+								</Colum>
+								<Colum style={{ width: 545 }}>
+									<Input type="text" placeholder='해외 근무지역의 상세주소를 입력해 주세요.' />
+								</Colum>
+							</Row>
+						)
+					})
+				)} fnAddButtonClicked={(asdf) => console.log(asdf)} fnDelButtonClicked={() => alert(2)} />
 			</FormLayout>
 			<FormLayout label='근무지역' required>
 				<SortWrapping>
@@ -155,6 +190,45 @@ const Jobpost_WorkiCondition = () => {
 						</Colum>
 					</Row>
 				</AddformWrapping>
+			</FormLayout>
+			<FormLayout label='근무시간'>
+				<AddremoveLayout initialize={(
+					['', ''].map((item, key) => {
+						return (
+							<Row alignItemsCenter>
+								<Colum style={{ width: 100 }}>
+									<Select>
+										<option>09시</option>
+									</Select>
+								</Colum>
+								<Colum style={{ width: 100 }}>
+									<Select>
+										<option>00분</option>
+									</Select>
+								</Colum>
+								<Colum col00>
+									<Text>~</Text>
+								</Colum>
+								<Colum style={{ width: 100 }}>
+									<Select>
+										<option>09시</option>
+									</Select>
+								</Colum>
+								<Colum style={{ width: 100 }}>
+									<Select>
+										<option>00분</option>
+									</Select>
+								</Colum>
+							</Row>
+						)
+					})
+				)} antHTMLAppend={(
+					<Row>
+						<Colum col12>
+							<Input type="text" placeholder="기타사항을 입력해 주세요" />
+						</Colum>
+					</Row>
+				)} />
 			</FormLayout>
 		</Section>
 	);

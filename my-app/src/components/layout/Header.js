@@ -5,7 +5,6 @@ import Button from "components/Button";
 import Row from "components/Row";
 import { PostSelect, Navigator, ValidateArea } from "curtain";
 
-console.log(styled)
 const Header = () => {
 	return (
 		<>

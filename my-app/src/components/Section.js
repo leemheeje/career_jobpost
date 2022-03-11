@@ -18,7 +18,6 @@ const Section = ({
 const JbCBoxing = styled('div', {
 	"padding": "74px 100px",
 	"border-radius": "20px",
-	"overflow": "hidden",
 	"background": "#fff",
 	"box-shadow": "0 5px 15px rgba(0,0,0,0.07)",
 	"&+&":{

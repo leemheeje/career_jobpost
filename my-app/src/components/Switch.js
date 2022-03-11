@@ -3,12 +3,11 @@ import { styled } from 'components/styles/stitches.config';
 
 export const Label = ({
 	children,
-	label,
 	...props
 }) => {
 	return (
 		<MLabel>
-			<input type="radio" {...props}/>
+			<input type="radio" {...props} />
 			<span className="lb">{children}</span>
 		</MLabel>
 	)
@@ -18,7 +17,7 @@ export const Switch = ({
 	...props
 }) => {
 	return (
-		<MSwitch className="jbForm">
+		<MSwitch className="jbForm" {...props}>
 			{children}
 		</MSwitch>
 	);
@@ -98,6 +97,46 @@ const MLabel = styled('label', {
 })
 const MSwitch = styled('div', {
 	"font-size": "0",
+	variants: {
+		lg: {
+			true: {
+				"& input[type='radio']+.lb": {
+					"height": "54px",
+					"line-height": "44px",
+					"font-size": "15px",
+					"padding-right": "35px",
+					"&:after": {
+						top: 19
+					}
+				},
+				"& input[type='radio']:checked+.lb:after": {
+					backgroundImage: `url(${require("assets/images/jobposts/icoslWhiteCircleCheck_20_20.png")})`,
+				},
+				"& input[type='radio']:checked+.lb:before": {
+					borderColor: '#454545',
+				},
+				"& input[type='radio']:checked+.lb": {
+					background: '#454545',
+					color: '#fff'
+				}
+			}
+		},
+		tablecell: {
+			true: {
+				"&": {
+					display: 'table',
+					tableLayout: 'fixed',
+					width: '100%',
+					"& label":{
+						display: 'table-cell'
+					},
+					"& .lb":{
+						width: '100%',
+					}
+				}
+			}
+		}
+	}
 })
 
 

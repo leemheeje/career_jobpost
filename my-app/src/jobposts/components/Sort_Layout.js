@@ -5,10 +5,11 @@ import { Tag, TagGroup } from 'components/Tag';
 
 export const SortWrapping = ({
 	children,
+	className,
 	...props
 }) => {
 	return (
-		<MSortLayout className='jbChicCmArea'>
+		<MSortLayout className={`jbChicCmArea ${className}`}>
 			{children}
 		</MSortLayout>
 	);

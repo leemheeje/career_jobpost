@@ -1,9 +1,5 @@
 import React from 'react';
 import { styled } from 'components/styles/stitches.config';
-import DartTheme from 'components/styles/theme/DarkTheme';
-
-
-console.log(DartTheme);
 
 
 const Button = ({
@@ -39,7 +35,7 @@ const MIco = styled('span', {
 		"height": "21px",
 		"background": `no-repeat center center url(${require('assets/images/jobposts/jbbtns_reload.png')})`,
 		"margin-right": "5px",
-	}
+	},
 });
 const MButton = styled('button', {
 	"padding": "0 22px",
@@ -53,10 +49,14 @@ const MButton = styled('button', {
 	"white-space": "nowrap",
 	"overflow": "hidden",
 	"min-width": "135px",
+	"a&": { lineHeight: '52px' },
 	"&.gray": {
 		"border-color": "#949fa5",
 		"background": "#949fa5",
 		"color": "#fff",
+	},
+	"&.block": {
+		"width": "100%",
 	},
 	"&.org": {
 		"border-color": "#ff6600",
@@ -77,12 +77,21 @@ const MButton = styled('button', {
 				"height": "32px",
 				"min-width": "80px",
 				"padding": 0,
+				"a&": { lineHeight: '30px' },
 				"& .intxtsw": {
 					fontSize: "12px",
 				}
 			},
-			md: { "height": "50px" },
-			lg: { "height": "80px" },
+			md: { "height": "50px", "a&": { lineHeight: '48px' }, },
+			lg: {
+				borderRadius: 3,
+				"height": "80px",
+				"a&": { lineHeight: '78px' },
+				"& .intxtsw": {
+					fontSize: "20px",
+					fontWeight: '800'
+				},
+			},
 		},
 		delete_button: {
 			true: {

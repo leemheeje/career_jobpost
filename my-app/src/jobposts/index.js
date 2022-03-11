@@ -5,3 +5,4 @@ export {default as Jobpost_HowToApply} from './Jobpost_HowToApply';// 접수방�
 export {default as Jobpost_ContactInformation} from './Jobpost_ContactInformation';// 담당자 정보
 export {default as Jobpost_CompanyInformation} from './Jobpost_CompanyInformation';// 기업정보
 export {default as Jobpost_Template} from './Jobpost_Template';// 템플릿
+export {default as Jobpost_RecruitGreeting} from './Jobpost_RecruitGreeting';// 채용 인사담

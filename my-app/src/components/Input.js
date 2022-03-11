@@ -1,6 +1,22 @@
-import { styled } from 'components/styles/stitches.config';
 import React from 'react';
+import { styled } from 'components/styles/stitches.config';
+import DatePicker from 'react-datepicker';
 
+import 'react-datepicker/dist/react-datepicker.css';
+
+export const Datepicker = ({
+	children,
+	placeholder = 'YYYY.MM.DD',
+	type = 'text',
+	...props
+}) => {
+	return (
+		<JbForm datepicker>
+			{/* <input type={type} placeholder={placeholder} {...props} readOnly /> */}
+			<DatePicker placeholder={placeholder} {...props} />
+		</JbForm>
+	);
+}
 export const Input = ({
 	children,
 	type = 'text',
@@ -69,6 +85,9 @@ let input_css = {
 	"width": "100%",
 	"vertical-align": "top",
 	"background-color": "#fff",
+	"&:read-only": {
+		background: '#f1f3f5',
+	}
 };
 const Label = styled('span', {
 	"display": "inline-block",
@@ -210,6 +229,15 @@ const JbForm = styled('div', {
 					"font-size": "15px",
 					"color": "#999",
 					"text-indent": "5px",
+				},
+			}
+		},
+		datepicker: {
+			true: {
+				"& input": {
+					"padding-right": "50px",
+					"text-align": "left",
+					"background": `#fff no-repeat calc(100% - 10px) center url(${require("assets/images/icos/icosGrayDate_21.png")}) !important`,
 				},
 			}
 		}
