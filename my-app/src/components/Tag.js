@@ -12,7 +12,7 @@ export const Tag = ({
 				!props.as
 					?
 					<>
-						<input type="checkbox" name="" value="" id="" {...props} />
+						<input type="checkbox" {...props} />
 						<span className="lb">{children}</span>
 					</>
 					:

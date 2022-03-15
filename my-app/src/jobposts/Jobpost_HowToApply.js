@@ -92,7 +92,7 @@ const Jobpost_HowToApply = () => {
 					<AddformRow label='ㆍE-Mail 주소'>
 						<Row>
 							<Colum col10>
-								<Input type='text' value='ditak@career.co.kr' />
+								<Input type='text' defaultValue='ditak@career.co.kr' />
 							</Colum>
 						</Row>
 					</AddformRow>

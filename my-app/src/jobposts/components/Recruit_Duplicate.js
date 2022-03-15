@@ -8,16 +8,7 @@ const RecruitDuplicate = ({
 	return (
 		<MRecruitDuplicate className='jbGlbNmAreaWrapping'>
 			{/* foreach:S */}
-			{
-				Array.isArray(initalize)
-					?
-					initalize.map((item, key) => {
-						return (
-							<RecruitDuplicateList isShow={(key === 0 ? true : false)} key={key} item={item} />
-						)
-					})
-					: ''
-			}
+			{initalize}
 			{/* foreach:E */}
 			{/* 모집분야 추가 버튼:S */}
 			<button className="jbSectAddButton MT20" style={{
@@ -36,39 +27,70 @@ const RecruitDuplicate = ({
 		</MRecruitDuplicate>
 	);
 }
-const RecruitDuplicateList = ({
-	isShow,
-	item,
+export const RecruitDuplicateStatubar = ({
+	onInputTitle = '',
+	onClickButtonCopy,
+	onClickButtonDelete,
+	onClickButtonExtend,
 	...props
 }) => {
 	return (
-		<MRecruitDuplicateList className={`jbGlbNmLists ${isShow ? 'show' : ''}`}>
+		<>
 			{/* 모집분야명 입력:S */}
-			<div className="jbGlbNmArea">
+			< div className="jbGlbNmArea" >
 				<div className="insrtNmArea">
-					<input type="text" placeholder="모집분야명을 입력해주세요." readOnly />
+					<input type="text" value={onInputTitle} placeholder="모집분야명을 입력해주세요." readOnly />
 					<div className="btnswa">
-						<button className="tnbx tp1" title="모집분야 복사"></button>
-						<button className="tnbx tp2" title="모집분야 삭제"></button>
-						<button className="tnbx tp3" title="모집분야 확장"></button>
+						<button className="tnbx tp1" onClick={()=>onClickButtonCopy} title="모집분야 복사"></button>
+						<button className="tnbx tp2" onClick={()=>onClickButtonDelete} title="모집분야 삭제"></button>
+						<button className="tnbx tp3" onClick={()=>onClickButtonExtend} title="모집분야 확장"></button>
 					</div>
 				</div>
-			</div>
+			</div >
 			{/* 모집분야명 입력:E */}
-			<div className="jbGlbTogArea">
-				{item}
-			</div>
-		</MRecruitDuplicateList>
+		</>
+	)
+}
+export const RecruitDuplicateListsGroup = ({
+	children,
+	isShow,
+	...props
+}) => {
+	return (
+		<MRecruitDuplicateListsGroup className={`jbGlbNmLists ${isShow ? 'show' : ''}`}>
+			{children}
+		</MRecruitDuplicateListsGroup>
+	)
+}
+export const RecruitDuplicateLists = ({
+	children,
+	...props
+}) => {
+	return (
+		<div className="jbGlbTogArea">
+			{children}
+		</div>
 	)
 }
 
-const MRecruitDuplicateList = styled('div', {
+const MRecruitDuplicateListsGroup = styled('div', {
 	marginTop: 48,
 	"&+&": {
 		marginTop: 20,
 	},
 	"& .jbGlbTogArea": {
 		display: "none",
+	},
+})
+const MRecruitDuplicate = styled('div', {
+	"& .jbGlbNmLists.show .jbGlbTogArea": {
+		display: 'block',
+	},
+	"& .jbGlbNmLists.show .jbGlbNmArea .insrtNmArea": {
+		borderColor: "#454545",
+	},
+	"& .jbGlbNmLists.show .jbGlbNmArea .insrtNmArea .btnswa .tnbx.tp3": {
+		backgroundImage: `url(${require("assets/images/jobposts/btnswa_tp3_up.png")})`,
 	},
 	"& .insrtNmArea": {
 		"border": "1px solid #b2b2b2",
@@ -116,17 +138,6 @@ const MRecruitDuplicateList = styled('div', {
 				},
 			}
 		}
-	}
-})
-const MRecruitDuplicate = styled('div', {
-	"& .jbGlbNmLists.show .jbGlbTogArea": {
-		display: 'block',
-	},
-	"& .jbGlbNmLists.show .jbGlbNmArea .insrtNmArea": {
-		borderColor: "#454545",
-	},
-	"& .jbGlbNmLists.show .jbGlbNmArea .insrtNmArea .btnswa .tnbx.tp3": {
-		backgroundImage: `url(${require("assets/images/jobposts/btnswa_tp3_up.png")})`,
 	}
 })
 

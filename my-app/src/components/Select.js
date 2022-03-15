@@ -6,13 +6,13 @@ const Select = ({
 	...props
 }) => {
 	return (
-		<Select_ {...props}>
+		<MSelect {...props}>
 			{children}
-		</Select_>
+		</MSelect>
 	);
 }
 
-const Select_ = styled('select', {
+const MSelect = styled('select', {
 	"border": "1px solid #cbd1db",
 	"border-radius": "2px",
 	"height": "54px",

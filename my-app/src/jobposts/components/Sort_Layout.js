@@ -63,7 +63,7 @@ export const Sort_Tooltip = ({
 
 								<div className="jbForm sm">
 									<label>
-										<input type="checkbox" id="" name="" value="" />
+										<input type="checkbox" />
 										<span className="lb">사원</span>
 									</label>
 								</div>
@@ -79,7 +79,7 @@ export const Sort_Tooltip = ({
 
 								<div className="jbForm sm">
 									<label>
-										<input type="checkbox" id="" name="" value="" />
+										<input type="checkbox" />
 										<span className="lb">사원</span>
 									</label>
 								</div>
