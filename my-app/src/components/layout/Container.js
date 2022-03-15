@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-	Jobpost_Recruitment,
-	Jobpost_Eligibility,
-	Jobpost_WorkiCondition,
-	Jobpost_HowToApply,
-	Jobpost_ContactInformation,
-	Jobpost_CompanyInformation,
-	Jobpost_Template,
-	Jobpost_RecruitGreeting
+	JobpostRecruitment,
+	JobpostEligibility,
+	JobpostWorkiCondition,
+	JobpostHowToApply,
+	JobpostContactInformation,
+	JobpostCompanyInformation,
+	JobpostTemplate,
+	// JobpostRecruitGreeting
 } from 'jobposts';
 import { styled } from 'components/styles/stitches.config';
 import InnerWrapping from 'components/InnerWrapping';
@@ -18,14 +18,14 @@ const Container = () => {
 	return (
 		<JbContentsArea>
 			<InnerWrapping>
-				<Jobpost_Recruitment />
-				<Jobpost_Eligibility />
-				<Jobpost_WorkiCondition />
-				<Jobpost_HowToApply />
-				<Jobpost_ContactInformation />
-				<Jobpost_CompanyInformation />
-				<Jobpost_Template />
-				{/* <Jobpost_RecruitGreeting /> */}
+				<JobpostRecruitment />
+				<JobpostEligibility />
+				<JobpostWorkiCondition />
+				<JobpostHowToApply />
+				<JobpostContactInformation />
+				<JobpostCompanyInformation />
+				<JobpostTemplate />
+				{/* <JobpostRecruitGreeting /> */}
 				<div className='TXTC MT50'>
 					<Button size="lg" className="org " style={{ minWidth: 300 }}>채용공고 등록완료</Button><br />
 					<Text className='MT15' style={{ lineHeight: '26px' }}>
