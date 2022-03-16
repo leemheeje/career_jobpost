@@ -7,7 +7,6 @@ const Selected = ({
 }) => {
 	return (
 		<>
-			{/* wrapping ?? classname fbOriStvsArea */}
 			<MSelected className="fboTpsw">
 				<span className="wlbwx">{children}</span>
 				<button className="wlbde" title="삭제" {...props}></button>
@@ -15,6 +14,22 @@ const Selected = ({
 		</>
 	);
 }
+
+export const SelectedWrapping = ({children}) => {
+	return (
+		<MfbOriStvsArea className='fbOriStvsArea clearfix'>
+			{children}
+		</MfbOriStvsArea>
+	)
+}
+
+const MfbOriStvsArea = styled('div',{
+	"min-height": "52px",
+    "padding": "11px 20px 11px",
+	"& .fboTpsw":{
+		float: 'left',
+	}
+})
 
 const MSelected = styled('div', {
 	"text-align": "left",

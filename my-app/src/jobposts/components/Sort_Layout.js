@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled } from 'components/styles/stitches.config';
 import Button from 'components/Button';
-import { Tag, TagGroup } from 'components/Tag';
 
 export const SortWrapping = ({
 	children,
@@ -17,82 +16,70 @@ export const SortWrapping = ({
 
 export const Sorted = ({
 	children,
+	nullmsg = '직급/직책을 선택해주세요. (3개까지 입력 가능)',
+	onClickAnthButton = () => { },
+	buttonTitle = '전체보기',
 	...props
 }) => {
+	const handlerAnthButton = (event) => {
+		onClickAnthButton(event);
+	}
 	return (
 		<>
 			<MSorted className="tmATInn">
-				{/* 선택된영역이있을때:S */}
-				{children}
-				{/* 선택된영역이있을때:E */}
-				{/* 선택된영역이없을때:S */}
-				<div className="tmNulIns">직급/직책을 선택해주세요. (3개까지 입력 가능)</div>
-				{/* 선택된영역이없을때:E */}
-				{/* <Sort_Tooltip /> */}
+				{children || (<div className="tmNulIns">{nullmsg}</div>)}
 			</MSorted>
 			<div className="btnwArea">
-				<Button size="sm">전체보기</Button>
+				<Button size="sm" onClick={(event) => handlerAnthButton(event)}>{buttonTitle}</Button>
 			</div>
 		</>
 	)
 }
 
-export const Sort_Tooltip = ({
+export const SortTooltip = ({
+	onClickCancelButton = () => { },
+	onClickConfirmButton = () => { },
+	onChangeCheckbox = () => { },
+	sortdata = [],
 	...props
 }) => {
 	return (
 		<MSortTooltip className='jbChikTotiArea'>
 			<div className="jbcGlInners">
 				<div className="jbcHdAec">
-					<div className="colst w5">
-						<div className="intxs">
-							<span className="int">직급</span>
-						</div>
-					</div>
-					<div className="colst w5">
-						<div className="intxs">
-							<span className="int">직책</span>
-						</div>
-					</div>
+					{
+						sortdata.map(({ label }, key) => (
+							<div className="colst w5" key={key}>
+								<div className="intxs">
+									<span className="int">{label}</span>
+								</div>
+							</div>
+						))
+					}
 				</div>
 				<div className='jbcCtAec'>
-					<div className='colst w5'>
-						<div className='jbcDepArea'>
-							{/* foreach:S */}
-							<div className='colst w3'>
-
-								<div className="jbForm sm">
-									<label>
-										<input type="checkbox" />
-										<span className="lb">사원</span>
-									</label>
+					{
+						sortdata.map(({ content }, key) => (
+							<div className='colst w5' key={key}>
+								<div className='jbcDepArea'>
+									{/* foreach:S */}
+									{
+										content.map((item, k) => (
+											<div className='colst w3' key={k}>
+												{item}
+											</div>
+										))
+									}
+									{/* foreach:E */}
 								</div>
-
 							</div>
-							{/* foreach:E */}
-						</div>
-					</div>
-					<div className='colst w5'>
-						<div className='jbcDepArea'>
-							{/* foreach:S */}
-							<div className='colst w3'>
-
-								<div className="jbForm sm">
-									<label>
-										<input type="checkbox" />
-										<span className="lb">사원</span>
-									</label>
-								</div>
-
-							</div>
-							{/* foreach:E */}
-						</div>
-					</div>
+						))
+					}
 				</div>
 				<div className="jbcBtAec">
 					<div className="btwGrs">
-						<Button size="md" className="outline">취소</Button>
-						<Button size="md">확인</Button>
+						<Button size="md" className="outline" onClick={() => onClickCancelButton()}>취소</Button>
+						<Button size="md" onClick={() => onClickConfirmButton()}>확인</Button>
 					</div>
 				</div>
 			</div>
@@ -100,15 +87,25 @@ export const Sort_Tooltip = ({
 	)
 }
 
-export const FavSorted = ({ ...props }) => {
+export const FavSorted = ({
+	children,
+	title = '자주 사용하는 외국어 선택',
+	onClickTagCallback,
+	...props
+}) => {
 	return (
 		<MFavSorted className="useBtArea">
-			<span className="tpwLabs">자주 사용하는 외국어 선택</span>
-			<TagGroup className="MT10">
+			<span className="tpwLabs">{title}</span>
+			<div className='MT10'>
+				{/* <TagGroup className="MT10">
 				{
-					['+JLPT', '+HSK'].map((item, index) => <Tag key={index}>{item}</Tag>)
+					labels.map(({title,code}, index) => <Tag key={index} name={code} checked={
+
+					} onChange={(event) => handlerTagCallback(event)}>+{title}</Tag>)
 				}
-			</TagGroup>
+			</TagGroup> */}
+				{children}
+			</div>
 		</MFavSorted>
 	)
 }

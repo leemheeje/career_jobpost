@@ -4,6 +4,7 @@ import { styled } from 'components/styles/stitches.config';
 
 export const Tag = ({
 	children,
+	label,
 	...props
 }) => {
 	return (
@@ -13,11 +14,11 @@ export const Tag = ({
 					?
 					<>
 						<input type="checkbox" {...props} />
-						<span className="lb">{children}</span>
+						<span className="lb">{label || children}</span>
 					</>
 					:
 					<>
-						{children}
+						{label || children}
 					</>
 			}
 
@@ -76,7 +77,7 @@ const MTag = styled('label', {
 	"position": "relative",
 	"margin-right": "4px",
 	"margin-bottom": "10px",
-	"button&":{
+	"button&": {
 		"border-color": "#454545",
 		"background-color": "#454545",
 		"color": "#fff",
