@@ -30,7 +30,6 @@ export const SortIndialogWrapping = ({
 	children,
 	sortCategoryArea = [],
 	sortContentArea = [],
-	sortResultArea = false,
 	...props
 }) => {
 	return (
@@ -55,9 +54,6 @@ export const SortIndialogWrapping = ({
 				</div>
 
 			</div>
-			{
-				sortResultArea ? <Result {...sortResultArea} /> : ''
-			}
 		</MSortIndialogWrapping>
 	);
 }

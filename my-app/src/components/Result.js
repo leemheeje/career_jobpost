@@ -5,10 +5,11 @@ import Selected from 'components/Selected';
 
 const Result = ({
 	children,
+	className,
 	...props
 }) => {
 	return (
-		<MResult>
+		<MResult className={className}>
 			<div className="jbresInner">
 				<div className="rexwConte">
 					{/*  선택된영역이있을때:S  */}

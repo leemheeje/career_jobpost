@@ -6,11 +6,13 @@ const Dialog = ({
 	children,
 	title = 'sdf',
 	subtitle = '',
+	onClickCancelButton = () => { },
+	onClickConfirmButton = () => { },
 	...props
 }) => {
 	return (
-		<M_Dialog {...props}>
-			<div className='dimm'></div>
+		<MDialog {...props}>
+			<div className='dimm' onClick={() => onClickCancelButton()}></div>
 			<DjGiContents css={{
 				"position": "relative",
 			}}>
@@ -25,14 +27,14 @@ const Dialog = ({
 					</div>
 					<div className='djFotAre'>
 						<div className="btwGrp">
-							<Button className="outline" md>취소</Button>
-							<Button className="ML05" md>확인</Button>
-							<button className='diClse' title="팝업닫기"></button>
+							<Button className="outline" onClick={() => onClickCancelButton()} size="md">취소</Button>
+							<Button className="ML05" onClick={() => onClickConfirmButton()} size="md">확인</Button>
+							<button className='diClse' title="팝업닫기" onClick={() => onClickCancelButton()}></button>
 						</div>
 					</div>
 				</DjGiInners>
 			</DjGiContents>
-		</M_Dialog>
+		</MDialog>
 	);
 }
 const DjGiInners = styled('div', {
@@ -43,7 +45,7 @@ const DjGiInners = styled('div', {
 	"padding": "32px 50px",
 });
 const DjGiContents = styled('div');
-const M_Dialog = styled('div', {
+const MDialog = styled('div', {
 	"position": "fixed",
 	"width": "100%",
 	"left": "0",
