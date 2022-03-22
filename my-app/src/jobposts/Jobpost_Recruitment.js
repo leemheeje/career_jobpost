@@ -9,7 +9,7 @@ import Text from 'components/Text';
 import Select from 'components/Select';
 import Selected, { SelectedWrapping } from 'components/Selected';
 import { Input, Checkbox, Radio } from 'components/Input';
-import { GRADE } from 'api';
+import { GRADE, WOODAE } from 'api';
 import { Tag, TagGroup } from 'components/Tag';
 import Dialog from 'components/Dialog';
 import { SortIndialogWrapping, SortContDicButton, SortCateDicButton } from 'jobposts/components/Sort_InDialog';
@@ -48,16 +48,25 @@ const Jobpost_Recruitment = () => {
 			{ "title": "대리", "code": "POS004" },
 			{ "title": "지사장", "code": "RES006" },
 		], //모집분야>직급/직책>자주찾는직급
+		woodae_list: [
+			{
+				"title": "고용촉진지원금대상자",
+				"code": "WOO004"
+			}, {
+				"title": "엑셀 고급능력자",
+				"code": "WOO106"
+			}, {
+				"title": "MAC.편집 전문가",
+				"code": "WOO109"
+			}, {
+				"title": "야근근무 가능자",
+				"code": "WOO204"
+			},
+		],
 		woodae_fav_list: [
-			{ "title": "일본어 가능자", "code": "POS012" },
-			{ "title": "지방근무 가능자", "code": "POS004" },
-			{ "title": "엑셀 고급능력 보유자", "code": "POS012" },
-			{ "title": "인근 거주자", "code": "POS004" },
-			{ "title": "여성", "code": "POS012" },
-			{ "title": "여군(장교, 부사관", "code": "POS004" },
-			{ "title": "인근 거주자", "code": "POS012" },
-			{ "title": "여성", "code": "POS004" },
-			{ "title": "여군(장교, 부사관", "code": "RES006" },
+			{ "title": "일본어가능자", "code": "WOO403" },
+			{ "title": "지방근무 가능자", "code": "WOO203" },
+			{ "title": "엑셀 고급능력자", "code": "WOO106" },
 		] //모집분야>우대조건>자주찾는우대조건
 	});
 	const [gradeSpread, setGradeSpread] = useState([...data.grade_position, ...data.grade_responsibilitie]);
@@ -281,6 +290,14 @@ const Jobpost_Recruitment = () => {
 						onClickAnthButton={() => setWoodaeDialogOpen(true)}
 					>
 						{
+							data.woodae_list.length &&
+							<SelectedWrapping>
+								{
+									data.woodae_list.map(({ title, code }, key) => <Selected key={key}>{title}</Selected>)
+								}
+							</SelectedWrapping>
+						}
+						{
 							woodaeDialogOpen
 							&&
 							<Dialog
@@ -291,10 +308,14 @@ const Jobpost_Recruitment = () => {
 							>
 								<SortIndialogWrapping
 									sortCategoryArea={(
-										['', ''].map((item, key) => <SortCateDicButton key={key}>asdf</SortCateDicButton>)
+										WOODAE.map(({ label }, key) => <SortCateDicButton key={key}>{label}</SortCateDicButton>)
 									)}
 									sortContentArea={(
-										['', ''].map((item, key) => <SortContDicButton key={key}>asdf</SortContDicButton>)
+										WOODAE.map(({ items }) => {
+											return items.map(({ title, code }, key) => <SortContDicButton value={code} checked={
+												data.woodae_list.find((item) => item.code === code) ? true : false
+											} onChange={() => { }} key={key}>{title}</SortContDicButton>)
+										})
 									)}
 								/>
 								<Result className='MT15' />
@@ -306,7 +327,9 @@ const Jobpost_Recruitment = () => {
 							{
 								data.woodae_fav_list.map(({ title, code }, key) => {
 									return (
-										<Tag key={key} label={`+${title}`} name={code} value={code} />
+										<Tag key={key} label={`+${title}`} name={code} value={code} checked={
+											data.woodae_list.find((item) => item.code === code) ? true : false
+										} onChange={() => { }} />
 									)
 								})
 							}
