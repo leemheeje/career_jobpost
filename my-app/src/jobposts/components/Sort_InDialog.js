@@ -32,7 +32,6 @@ export const SortIndialogWrapping = ({
 	sortContentArea = [],
 	...props
 }) => {
-	console.log(sortContentArea);
 	return (
 		<MSortIndialogWrapping className="jbChkLavwArea">
 			<div className="jbcRowsCont">

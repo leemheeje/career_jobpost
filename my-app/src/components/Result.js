@@ -4,6 +4,7 @@ import Button from 'components/Button';
 import Selected from 'components/Selected';
 
 const Result = ({
+	nullmsg = '선택한 항목이 없습니다.',
 	children,
 	className,
 	...props
@@ -12,14 +13,7 @@ const Result = ({
 		<MResult className={className}>
 			<div className="jbresInner">
 				<div className="rexwConte">
-					{/*  선택된영역이있을때:S  */}
-					{/*  foreach:S  */}
-					<Selected>책임연구원</Selected>
-					{/*  foreach:E  */}
-					{/*  선택된영역이있을때:E  */}
-					{/*  선택된영역이없을때:S  */}
-					<div className="tmNulIns">선택한 항목이 없습니다.</div>
-					{/*  선택된영역이없을때:E  */}
+					{children || (<div className="tmNulIns">{nullmsg}</div>)}
 				</div>
 				<div className="rexwBte">
 					<Button size="sm" className="gray">초기화</Button>

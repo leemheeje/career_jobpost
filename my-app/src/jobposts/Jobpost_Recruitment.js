@@ -116,7 +116,7 @@ const Jobpost_Recruitment = () => {
 		name
 	}) => {
 		if (event.target.checked) {
-			bandlerGradeAdd([{ "title": title, "code": code }], name);
+			bandlerGradeAdd([{ title, code }], name);
 		} else {
 			bandlerGradeDelete(code, name);
 		}
@@ -159,7 +159,7 @@ const Jobpost_Recruitment = () => {
 									name={`is_career${index}`}
 									value={res.value}
 									label={res.title}
-									defaultChecked={data.is_career === res.value}
+									checked={data.is_career === res.value}
 									onChange={event => handlerDataSprtMerge(event.target.value, 'is_career')}
 								/>
 							</Colum>
@@ -293,7 +293,7 @@ const Jobpost_Recruitment = () => {
 							data.woodae_list.length &&
 							<SelectedWrapping>
 								{
-									data.woodae_list.map(({ title, code }, key) => <Selected key={key}>{title}</Selected>)
+									data.woodae_list.map(({ title, code }, key) => title && code && <Selected onClick={() => bandlerGradeDelete(code, 'woodae_list')} key={key}>{title}</Selected>)
 								}
 							</SelectedWrapping>
 						}
@@ -314,11 +314,24 @@ const Jobpost_Recruitment = () => {
 										WOODAE.map(({ items }) => {
 											return items.map(({ title, code }, key) => <SortContDicButton value={code} checked={
 												data.woodae_list.find((item) => item.code === code) ? true : false
-											} onChange={() => { }} key={key}>{title}</SortContDicButton>)
+											} onChange={event => handlerGradeCheckbox(event, {
+												title,
+												code,
+												name: 'woodae_list',
+											})} key={key}>{title}</SortContDicButton>)
 										})
 									)}
 								/>
-								<Result className='MT15' />
+								<Result className='MT15'>
+									{
+										data.woodae_list.length &&
+										<SelectedWrapping>
+											{
+												data.woodae_list.map(({ title, code }, key) => title && code && <Selected onClick={() => bandlerGradeDelete(code, 'woodae_list')} key={key}>{title}</Selected>)
+											}
+										</SelectedWrapping>
+									}
+								</Result>
 							</Dialog>
 						}
 					</Sorted>
@@ -329,7 +342,11 @@ const Jobpost_Recruitment = () => {
 									return (
 										<Tag key={key} label={`+${title}`} name={code} value={code} checked={
 											data.woodae_list.find((item) => item.code === code) ? true : false
-										} onChange={() => { }} />
+										} onChange={event => handlerGradeCheckbox(event, {
+											title,
+											code,
+											name: 'woodae_list',
+										})} />
 									)
 								})
 							}

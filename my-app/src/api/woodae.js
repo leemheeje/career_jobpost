@@ -31,7 +31,7 @@ const Woodae = [
 				"code": "WOO007"
 			},
 			{
-				"title": "주부(전업주부",
+				"title": "주부(전업주부)",
 				"code": "WOO008"
 			},
 			{
